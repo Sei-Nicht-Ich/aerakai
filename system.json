@@ -1,0 +1,67 @@
+{
+  "id": "aerakai",
+  "title": "Aera:Kai - The Anime RPG",
+  "description": "Anime PnP System",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 14,
+    "verified": 14
+  },
+  "authors": [
+    {
+    "name": "DanteVanHell (System)",
+    "discord": "DanteVanHell#5522"
+    },
+    {
+    "name": "Sei Nicht Ich (Foundry)",
+    "discord": "sei_nicht_ich#2025"
+    }
+  ],
+  "esmodules": ["aerakai.mjs"],
+  "styles": ["styles/system-styles.css"],
+  "packs": [{
+    "name": "monsters",
+    "label": "Monsters",
+    "system": "aerakai",
+    "type": "Actor"
+  },
+  {
+    "name": "items",
+    "label": "Items",
+    "system": "aerakai",
+    "type": "Item"
+  }],
+  "languages": [{
+    "lang": "en",
+    "name": "English",
+    "path": "lang/en.json"
+  },
+  {
+    "lang": "de",
+    "name": "Deutsch",
+    "path": "lang/de.json"
+  }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "hero": { "htmlFields": ["background.biography"] },
+      "villain": { "htmlFields": ["background.biography"] },
+      "pawn": {}
+    },
+    "Item": {
+      "weapon": {},
+      "spell": {}
+    }
+  },
+  "socket": false,
+  "initiative": "1d20",
+  "grid": {
+    "distance": 10,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "resources.health",
+  "secondaryTokenAttribute": "resources.power",
+  "url": "https://github.com/Sei-Nicht-Ich/aerakai",
+  "manifest": "https://your/hosted/system/repo/system.json",
+  "download": "https://your/packaged/download/archive.zip"
+}
