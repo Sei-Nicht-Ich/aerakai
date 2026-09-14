@@ -2,7 +2,7 @@
   "id": "aerakai",
   "title": "Aera:Kai - The Anime RPG",
   "description": "Anime PnP System",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "compatibility": {
     "minimum": 14,
     "verified": 14
@@ -17,20 +17,9 @@
     "discord": "sei_nicht_ich#2025"
     }
   ],
-  "esmodules": ["aerakai.mjs"],
+  "esmodules": ["module/main.js"],
   "styles": ["styles/system-styles.css"],
-  "packs": [{
-    "name": "monsters",
-    "label": "Monsters",
-    "system": "aerakai",
-    "type": "Actor"
-  },
-  {
-    "name": "items",
-    "label": "Items",
-    "system": "aerakai",
-    "type": "Item"
-  }],
+  "packs": [],
   "languages": [{
     "lang": "en",
     "name": "English",
@@ -62,6 +51,6 @@
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",
   "url": "https://github.com/Sei-Nicht-Ich/aerakai",
-  "manifest": "https://your/hosted/system/repo/system.json",
-  "download": "https://your/packaged/download/archive.zip"
+  "manifest": "https://github.com/Sei-Nicht-Ich/aerakai/blob/main/system.json",
+  "download": "https://assets.forge-vtt.com/64d8006e5fdc35c46c5098ba/AeraKai/aerakai.zip"
 }
