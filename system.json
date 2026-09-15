@@ -2,7 +2,7 @@
   "id": "aerakai",
   "title": "Aera:Kai - The Anime RPG",
   "description": "Anime PnP System",
-  "version": "0.0.1",
+  "version": "0.0.17",
   "compatibility": {
     "minimum": 14,
     "verified": 14
@@ -17,6 +17,10 @@
     "discord": "sei_nicht_ich#2025"
     }
   ],
+  "schema": {
+	"actor": ["system/actor-schema.json"],
+	"ability": ["system/ability-schema.json"]
+  },
   "esmodules": ["module/main.js"],
   "styles": ["styles/system-styles.css"],
   "packs": [],
@@ -33,13 +37,12 @@
   ],
   "documentTypes": {
     "Actor": {
-      "hero": { "htmlFields": ["background.biography"] },
-      "villain": { "htmlFields": ["background.biography"] },
-      "pawn": {}
+      "pc": { "htmlFields": ["background.biography"], "schema": "actor" },
+      "npc": { "htmlFields": ["background.biography"], "schema": "actor" },
+      "monster": {"schema": "actor"}
     },
     "Item": {
-      "weapon": {},
-      "spell": {}
+		"ability": { "schema": "ability" }
     }
   },
   "socket": false,
@@ -51,6 +54,6 @@
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",
   "url": "https://github.com/Sei-Nicht-Ich/aerakai",
-  "manifest": "https://github.com/Sei-Nicht-Ich/aerakai/blob/main/system.json",
+  "manifest": "https://assets.forge-vtt.com/64d8006e5fdc35c46c5098ba/AeraKai/system.json",
   "download": "https://assets.forge-vtt.com/64d8006e5fdc35c46c5098ba/AeraKai/aerakai.zip"
 }
