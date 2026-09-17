@@ -32,3 +32,159 @@
   width: 50px;
   text-align: center;
 }
+
+.edit-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+}
+
+/* --- Allgemeines Layout --- */
+.actor-sheet {
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #fdfaff 0%, #f7f3ff 100%);
+  padding: 10px;
+  border-radius: 12px;
+}
+
+/* --- Header --- */
+.sheet-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e3d8ff;
+}
+
+.sheet-header img.profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  border: 3px solid #d6c8ff;
+  box-shadow: 0 0 8px rgba(150, 120, 255, 0.4);
+}
+
+.sheet-header h1 input {
+  font-size: 1.6rem;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #c7b6ff;
+  padding: 4px;
+}
+
+/* --- Edit Toggle --- */
+.edit-toggle {
+  margin-top: 8px;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  background: #f0eaff;
+  border: 1px solid #d8cfff;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 0.9rem;
+  box-shadow: 0 0 6px rgba(150, 120, 255, 0.2);
+}
+
+.edit-toggle input {
+  margin-right: 6px;
+}
+
+/* --- Tabs --- */
+.sheet-tabs .item {
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-right: 6px;
+  background: #e9e1ff;
+  border: 1px solid #d3c6ff;
+  transition: 0.2s;
+}
+
+.sheet-tabs .item:hover {
+  background: #dcd2ff;
+  cursor: pointer;
+}
+
+.sheet-tabs .item.active {
+  background: #c7b6ff;
+  color: white;
+  border-color: #b09aff;
+}
+
+/* --- Ressourcen-Karten --- */
+.resource {
+  background: #ffffff;
+  border: 2px solid #e3d8ff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 6px rgba(150, 120, 255, 0.15);
+}
+
+.resource label {
+  font-weight: bold;
+  color: #6a4fbf;
+}
+
+.resource-fields {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.resource-fields input {
+  width: 60px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #cfc2ff;
+  background: #faf7ff;
+}
+
+/* --- Attribute Grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 8px 12px;
+  margin-top: 10px;
+}
+
+.grid label {
+  font-weight: bold;
+  color: #6a4fbf;
+}
+
+.grid input {
+  border-radius: 6px;
+  border: 1px solid #cfc2ff;
+  background: #faf7ff;
+  text-align: center;
+}
+
+/* --- Hintergrund --- */
+.tab[data-tab="background"] input {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #cfc2ff;
+  background: #faf7ff;
+  margin-bottom: 10px;
+}
+
+/* --- Fähigkeiten --- */
+.tab[data-tab="abilitys"] li {
+  padding: 6px;
+  background: #f7f3ff;
+  border: 1px solid #d8cfff;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  transition: 0.2s;
+}
+
+.tab[data-tab="abilitys"] li:hover {
+  background: #e9e1ff;
+  cursor: pointer;
+}
+
+.sheet-header {
+  background: url("data:image/svg+xml,<svg ...>") no-repeat right;
+}

@@ -2,57 +2,162 @@
   "id": "aerakai",
   "title": "Aera:Kai - The Anime RPG",
   "description": "Anime PnP System",
-  "version": "0.0.17",
+  "version": "0.0.34",
+
   "compatibility": {
     "minimum": 14,
     "verified": 14
   },
+
   "authors": [
     {
-    "name": "DanteVanHell (System)",
-    "discord": "DanteVanHell#5522"
+      "name": "DanteVanHell (System)",
+      "discord": "DanteVanHell#5522"
     },
     {
-    "name": "Sei Nicht Ich (Foundry)",
-    "discord": "sei_nicht_ich#2025"
+      "name": "Sei Nicht Ich (Foundry)",
+      "discord": "sei_nicht_ich#2025"
     }
   ],
-  "schema": {
-	"actor": ["system/actor-schema.json"],
-	"ability": ["system/ability-schema.json"]
+
+  "system": {
+    "schema": {
+      "actor": ["system/actor-schema.json"],
+      "ability": ["system/ability-schema.json"]
+    }
   },
+
   "esmodules": ["module/main.js"],
   "styles": ["styles/system-styles.css"],
   "packs": [],
-  "languages": [{
-    "lang": "en",
-    "name": "English",
-    "path": "lang/en.json"
-  },
-  {
-    "lang": "de",
-    "name": "Deutsch",
-    "path": "lang/de.json"
-  }
+
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    }
   ],
+
   "documentTypes": {
     "Actor": {
-      "pc": { "htmlFields": ["background.biography"], "schema": "actor" },
-      "npc": { "htmlFields": ["background.biography"], "schema": "actor" },
-      "monster": {"schema": "actor"}
+      "pc": {
+        "schema": "actor",
+        "htmlFields": [],
+        "system": {
+          "attributes": {
+            "kr": 0,
+            "zae": 0,
+            "gw": 0,
+            "ff": 0,
+            "in": 0,
+            "ch": 0,
+            "vs": 0
+          },
+          "resources": {
+            "tp": { "value": 1, "max": 1 },
+            "wu": { "value": 1, "max": 1 },
+            "ak": { "value": 1, "max": 1 },
+            "kp": { "value": 1, "max": 1 }
+          },
+          "background": {
+            "pfad": "",
+            "herkunft": "",
+            "hobby": "",
+            "markenzeichen": "",
+            "merkmal": ""
+          }
+        }
+      },
+
+      "npc": {
+        "schema": "actor",
+        "htmlFields": [],
+        "system": {
+          "attributes": {
+            "kr": 0,
+            "zae": 0,
+            "gw": 0,
+            "ff": 0,
+            "in": 0,
+            "ch": 0,
+            "vs": 0
+          },
+          "resources": {
+            "tp": { "value": 1, "max": 1 },
+            "wu": { "value": 1, "max": 1 },
+            "ak": { "value": 1, "max": 1 },
+            "kp": { "value": 1, "max": 1 }
+          },
+          "background": {
+            "pfad": "",
+            "herkunft": "",
+            "hobby": "",
+            "markenzeichen": "",
+            "merkmal": ""
+          }
+        }
+      },
+
+      "monster": {
+        "schema": "actor",
+        "htmlFields": [],
+        "system": {
+          "attributes": {
+            "kr": 0,
+            "zae": 0,
+            "gw": 0,
+            "ff": 0,
+            "in": 0,
+            "ch": 0,
+            "vs": 0
+          },
+          "resources": {
+            "tp": { "value": 1, "max": 1 },
+            "wu": { "value": 1, "max": 1 },
+            "ak": { "value": 1, "max": 1 },
+            "kp": { "value": 1, "max": 1 }
+          },
+          "background": {
+            "pfad": "",
+            "herkunft": "",
+            "hobby": "",
+            "markenzeichen": "",
+            "merkmal": ""
+          }
+        }
+      }
     },
+
     "Item": {
-		"ability": { "schema": "ability" }
+      "ability": {
+        "schema": "ability",
+        "htmlFields": [],
+        "system": {
+          "name": "",
+          "referenceAttribute": "",
+          "value": 0
+        }
+      }
     }
   },
+
   "socket": false,
   "initiative": "1d20",
+
   "grid": {
     "distance": 10,
     "units": "ft"
   },
-  "primaryTokenAttribute": "resources.health",
-  "secondaryTokenAttribute": "resources.power",
+
+  "primaryTokenAttribute": "resources.tp",
+  "secondaryTokenAttribute": "resources.kp",
+
   "url": "https://github.com/Sei-Nicht-Ich/aerakai",
   "manifest": "https://assets.forge-vtt.com/64d8006e5fdc35c46c5098ba/AeraKai/system.json",
   "download": "https://assets.forge-vtt.com/64d8006e5fdc35c46c5098ba/AeraKai/aerakai.zip"

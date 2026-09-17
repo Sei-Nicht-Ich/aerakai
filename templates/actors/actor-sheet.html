@@ -3,6 +3,13 @@
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
     <h1><input name="name" type="text" value="{{actor.name}}"/></h1>
   </header>
+	<div class="edit-toggle">
+	  <label>
+		<input type="checkbox" class="edit-mode-toggle" {{#if actor.flags.aerakai.editMode}}checked{{/if}}>
+		Edit Mode
+	  </label>
+	</div>
+
 
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="resources">Ressourcen</a>
@@ -13,102 +20,116 @@
   </nav>
 
   <section class="sheet-body">
-  	<div class="tab" data-group="primary" data-tab="resources">
-		<h2>Ressourcen</h2>
-		
-		<div class="resource tp">
-		  <label>Trefferpunkte</label>
-		  <div class="resource-fields">
-			<input type="number" name="system.resources.tp.value" value="{{system.resources.tp.value}}" />
-			<span>/</span>
-			<input type="number" name="system.resources.tp.max" value="{{system.resources.tp.max}}" />
-		  </div>
-		</div>
-		
-		<div class="resource wu">
-		  <label>Wunden</label>
-		  <div class="resource-fields">
-			<input type="number" name="system.resources.wu.value" value="{{system.resources.wu.value}}" />
-			<span>/</span>
-			<input type="number" name="system.resources.wu.max" value="{{system.resources.wu.max}}" />
-		  </div>
-		</div>
-		
-		<div class="resource ak">
-		  <label>Aktionen</label>
-		  <div class="resource-fields">
-			<input type="number" name="system.resources.ak.value" value="{{system.resources.ak.value}}" />
-			<span>/</span>
-			<input type="number" name="system.resources.ak.max" value="{{system.resources.ak.max}}" />
-		  </div>
-		</div>
-		
-		<div class="resource kp">
-		  <label>Kraftpunkte</label>
-		  <div class="resource-fields">
-			<input type="number" name="system.resources.kp.value" value="{{system.resources.kp.value}}" />
-			<span>/</span>
-			<input type="number" name="system.resources.kp.max" value="{{system.resources.kp.max}}" />
-		  </div>
-		</div>
 
-	</div>
+    <!-- Ressourcen -->
+    <div class="tab" data-group="primary" data-tab="resources">
+      <h2>Ressourcen</h2>
+
+      <div class="resource tp">
+        <label>Trefferpunkte</label>
+        <div class="resource-fields">
+          <input type="number" name="system.resources.tp.value" value="{{actor.system.resources.tp.value}}" />
+          <span>/</span>
+          <input type="number" name="system.resources.tp.max" value="{{actor.system.resources.tp.max}}" />
+        </div>
+      </div>
+
+      <div class="resource wu">
+        <label>Wunden</label>
+        <div class="resource-fields">
+          <input type="number" name="system.resources.wu.value" value="{{actor.system.resources.wu.value}}" />
+          <span>/</span>
+          <input type="number" name="system.resources.wu.max" value="{{actor.system.resources.wu.max}}" />
+        </div>
+      </div>
+
+      <div class="resource ak">
+        <label>Aktionen</label>
+        <div class="resource-fields">
+          <input type="number" name="system.resources.ak.value" value="{{actor.system.resources.ak.value}}" />
+          <span>/</span>
+          <input type="number" name="system.resources.ak.max" value="{{actor.system.resources.ak.max}}" />
+        </div>
+      </div>
+
+      <div class="resource kp">
+        <label>Kraftpunkte</label>
+        <div class="resource-fields">
+          <input type="number" name="system.resources.kp.value" value="{{actor.system.resources.kp.value}}" />
+          <span>/</span>
+          <input type="number" name="system.resources.kp.max" value="{{actor.system.resources.kp.max}}" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Attribute -->
     <div class="tab" data-group="primary" data-tab="attributes">
       <h2>Attribute</h2>
       <div class="grid">
         <label>Kraft</label>
-        <input type="number" name="system.attributes.kr" value="{{system.attributes.kr}}"/>
+        <input type="number" name="system.attributes.kr" value="{{actor.system.attributes.kr}}"/>
 
         <label>Zähigkeit</label>
-        <input type="number" name="system.attributes.zae" value="{{system.attributes.zae}}"/>
-		
+        <input type="number" name="system.attributes.zae" value="{{actor.system.attributes.zae}}"/>
+
         <label>Gewandtheit</label>
-        <input type="number" name="system.attributes.gw" value="{{system.attributes.gw}}"/>
-		
+        <input type="number" name="system.attributes.gw" value="{{actor.system.attributes.gw}}"/>
+
         <label>Fingerfertigkeit</label>
-        <input type="number" name="system.attributes.ff" value="{{system.attributes.ff}}"/>
-		
+        <input type="number" name="system.attributes.ff" value="{{actor.system.attributes.ff}}"/>
+
         <label>Intuition</label>
-        <input type="number" name="system.attributes.in" value="{{system.attributes.in}}"/>
-		
+        <input type="number" name="system.attributes.in" value="{{actor.system.attributes.in}}"/>
+
         <label>Charisma</label>
-        <input type="number" name="system.attributes.ch" value="{{system.attributes.ch}}"/>
-		
+        <input type="number" name="system.attributes.ch" value="{{actor.system.attributes.ch}}"/>
+
         <label>Verstand</label>
-        <input type="number" name="system.attributes.vs" value="{{system.attributes.vs}}"/>
+        <input type="number" name="system.attributes.vs" value="{{actor.system.attributes.vs}}"/>
       </div>
     </div>
-	<div class="tab" data-group="primary" data-tab="abilitys">
-	  <h2>Fähigkeiten</h2>
-	  <ul>
-		{{#each items}}
-		  {{#if (eq this.type "ability")}}
-			<li>{{this.name}}</li>
-		  {{/if}}
-		{{/each}}
-	  </ul>
-	</div>
+
+    <!-- Fähigkeiten -->
+    <div class="tab" data-group="primary" data-tab="abilitys">
+      <h2>Fähigkeiten</h2>
+      <ul>
+        {{#each items}}
+          {{#if (eq this.type "ability")}}
+            <li>{{this.name}}</li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+
+    <!-- Hintergrund -->
     <div class="tab" data-group="primary" data-tab="background">
       <h2>Hintergrund</h2>
-	  
-		<label>Pfad</label>
-        <input type="text" name="system.background.pfad" value="{{system.background.pfad}}"/>
-		</br>
-		<label>Herkunft</label>
-        <input type="text" name="system.background.herkunft" value="{{system.background.herkunft}}"/>	  
-		</br>
-		<label>Hobby</label>
-        <input type="text" name="system.background.hobby" value="{{system.background.hobby}}"/>
-		</br>
-		<label>Markenzeichen</label>
-        <input type="text" name="system.background.markenzeichen" value="{{system.background.markenzeichen}}"/>
-		</br> 
-		<label>Merkmal</label>
-        <input type="text" name="system.background.merkmal" value="{{system.background.merkmal}}"/>
+
+      <label>Pfad</label>
+      <input type="text" name="system.background.pfad" value="{{actor.system.background.pfad}}"/>
+      <br/>
+
+      <label>Herkunft</label>
+      <input type="text" name="system.background.herkunft" value="{{actor.system.background.herkunft}}"/>
+      <br/>
+
+      <label>Hobby</label>
+      <input type="text" name="system.background.hobby" value="{{actor.system.background.hobby}}"/>
+      <br/>
+
+      <label>Markenzeichen</label>
+      <input type="text" name="system.background.markenzeichen" value="{{actor.system.background.markenzeichen}}"/>
+      <br/>
+
+      <label>Merkmal</label>
+      <input type="text" name="system.background.merkmal" value="{{actor.system.background.merkmal}}"/>
     </div>
-	<div class="tab" data-group="primary" data-tab="inventory">
+
+    <!-- Inventar -->
+    <div class="tab" data-group="primary" data-tab="inventory">
       <h2>Inventar</h2>
       <p>Hier kommen später Items rein.</p>
     </div>
+
   </section>
 </form>
