@@ -33,13 +33,6 @@
   text-align: center;
 }
 
-.edit-toggle {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 14px;
-}
-
 /* --- Allgemeines Layout --- */
 .actor-sheet {
   font-family: "Nunito", "Segoe UI", sans-serif;
@@ -55,6 +48,7 @@
   gap: 15px;
   padding-bottom: 10px;
   border-bottom: 2px solid #e3d8ff;
+  background: url("data:image/svg+xml,<svg ...>") no-repeat right;
 }
 
 .sheet-header img.profile-img {
@@ -71,23 +65,6 @@
   background: transparent;
   border-bottom: 2px solid #c7b6ff;
   padding: 4px;
-}
-
-/* --- Edit Toggle --- */
-.edit-toggle {
-  margin-top: 8px;
-  margin-bottom: 12px;
-  padding: 6px 10px;
-  background: #f0eaff;
-  border: 1px solid #d8cfff;
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 0.9rem;
-  box-shadow: 0 0 6px rgba(150, 120, 255, 0.2);
-}
-
-.edit-toggle input {
-  margin-right: 6px;
 }
 
 /* --- Tabs --- */
@@ -185,6 +162,166 @@
   cursor: pointer;
 }
 
-.sheet-header {
-  background: url("data:image/svg+xml,<svg ...>") no-repeat right;
+/* --- Edit Mode Toggle (Anime-Version) --- */
+.edit-toggle {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+  margin-bottom: 12px;
+}
+
+/* Checkbox verstecken */
+.edit-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider */
+.edit-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #e9e1ff;
+  border: 2px solid #d3c6ff;
+  border-radius: 20px;
+
+  transition: 0.3s;
+  box-shadow: 0 0 6px rgba(150, 120, 255, 0.25);
+}
+
+/* Slider-Knopf */
+.edit-slider::before {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  left: 0px;
+  top: 0px;
+
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #c7b6ff;
+
+  transition: 0.3s;
+}
+
+/* Icon */
+.edit-icon {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  font-size: 10px;
+  color: #6a4fbf;
+  transform: translateX(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* --- Aktiviert --- */
+
+/* Slider-Farbe */
+.edit-toggle input:checked ~ .edit-slider {
+  background: #c7b6ff;
+  border-color: #b09aff;
+}
+
+/* Knopf bewegt sich nach rechts */
+.edit-toggle input:checked ~ .edit-slider::before {
+  transform: translateX(15px);
+}
+
+/* Icon bewegt sich nach links */
+.edit-toggle input:checked ~ .edit-icon {
+  transform: translateX(-20px);
+  color: white;
+}
+
+.attr-btn {
+  background: #f7f3ff;
+  border: 1px solid #d8cfff;
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.attr-btn:hover {
+  background: #e9e1ff;
+}
+
+.aerakai-roll-card.anime-style {
+  background: linear-gradient(135deg, #fef6ff, #e8d7ff);
+  border: 2px solid #b38bff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 0 12px rgba(179, 139, 255, 0.6);
+  font-family: "Nunito", "Segoe UI", sans-serif;
+}
+
+.aerakai-roll-card .header .title {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #6a4fbf;
+  margin-bottom: 8px;
+}
+
+.aerakai-roll-card .dice-row {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.aerakai-roll-card .die {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border: 2px solid #c7a6ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #6a4fbf;
+  box-shadow: 0 0 6px rgba(179, 139, 255, 0.4);
+}
+
+.aerakai-roll-card .footer {
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #6a4fbf;
+}
+
+.chain {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.pasch {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+
+.pasch .die { border-color: #ff9bb3; }
+.dice .die { border-color: #6a4fbf; }
+.chain .die { border-color: #b3ff9b; }
+
+.rest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.dice {
+  display: flex;
+  gap: 4px;
 }

@@ -2,7 +2,7 @@
   "id": "aerakai",
   "title": "Aera:Kai - The Anime RPG",
   "description": "Anime PnP System",
-  "version": "0.0.34",
+  "version": "0.0.35",
 
   "compatibility": {
     "minimum": 14,
@@ -29,7 +29,15 @@
 
   "esmodules": ["module/main.js"],
   "styles": ["styles/system-styles.css"],
-  "packs": [],
+  "packs": [
+  {
+    "name": "abilities",
+    "label": "Fähigkeiten",
+    "system": "aerakai",
+    "path": "packs/abilities.db",
+    "type": "Item"
+  }
+  ],
 
   "languages": [
     {
@@ -141,6 +149,7 @@
         "system": {
           "name": "",
           "referenceAttribute": "",
+		  "setting": "",
           "value": 0
         }
       }

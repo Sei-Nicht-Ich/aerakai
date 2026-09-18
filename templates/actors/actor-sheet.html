@@ -1,14 +1,15 @@
 <form class="actor-sheet" autocomplete="off">
+	<div class="edit-toggle">
+		<label>
+		  <input type="checkbox" class="edit-mode-switch" {{#if actor.flags.aerakai.editMode}}checked{{/if}}>
+		  <span class="edit-slider"></span>
+		  <span class="edit-icon">✎</span>
+		</label>
+	</div>
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
     <h1><input name="name" type="text" value="{{actor.name}}"/></h1>
   </header>
-	<div class="edit-toggle">
-	  <label>
-		<input type="checkbox" class="edit-mode-toggle" {{#if actor.flags.aerakai.editMode}}checked{{/if}}>
-		Edit Mode
-	  </label>
-	</div>
 
 
   <nav class="sheet-tabs tabs" data-group="primary">
@@ -65,28 +66,53 @@
     <!-- Attribute -->
     <div class="tab" data-group="primary" data-tab="attributes">
       <h2>Attribute</h2>
-      <div class="grid">
-        <label>Kraft</label>
-        <input type="number" name="system.attributes.kr" value="{{actor.system.attributes.kr}}"/>
+	  {{#if actor.flags.aerakai.editMode}}
+		  <div class="grid">
+			<label>Kraft</label>
+			<input type="number" name="system.attributes.kr" value="{{actor.system.attributes.kr}}"/>
 
-        <label>Zähigkeit</label>
-        <input type="number" name="system.attributes.zae" value="{{actor.system.attributes.zae}}"/>
+			<label>Zähigkeit</label>
+			<input type="number" name="system.attributes.zae" value="{{actor.system.attributes.zae}}"/>
 
-        <label>Gewandtheit</label>
-        <input type="number" name="system.attributes.gw" value="{{actor.system.attributes.gw}}"/>
+			<label>Gewandtheit</label>
+			<input type="number" name="system.attributes.gw" value="{{actor.system.attributes.gw}}"/>
 
-        <label>Fingerfertigkeit</label>
-        <input type="number" name="system.attributes.ff" value="{{actor.system.attributes.ff}}"/>
+			<label>Fingerfertigkeit</label>
+			<input type="number" name="system.attributes.ff" value="{{actor.system.attributes.ff}}"/>
 
-        <label>Intuition</label>
-        <input type="number" name="system.attributes.in" value="{{actor.system.attributes.in}}"/>
+			<label>Intuition</label>
+			<input type="number" name="system.attributes.in" value="{{actor.system.attributes.in}}"/>
 
-        <label>Charisma</label>
-        <input type="number" name="system.attributes.ch" value="{{actor.system.attributes.ch}}"/>
+			<label>Charisma</label>
+			<input type="number" name="system.attributes.ch" value="{{actor.system.attributes.ch}}"/>
 
-        <label>Verstand</label>
-        <input type="number" name="system.attributes.vs" value="{{actor.system.attributes.vs}}"/>
-      </div>
+			<label>Verstand</label>
+			<input type="number" name="system.attributes.vs" value="{{actor.system.attributes.vs}}"/>
+		  </div>
+	  {{else}}
+		  <div class="grid">
+			<label>Kraft</label>
+			<button class="attr-btn" data-attr="kr">{{actor.system.attributes.kr}}</button>
+
+			<label>Zähigkeit</label>
+			<button class="attr-btn" data-attr="zae">{{actor.system.attributes.zae}}</button>
+
+			<label>Gewandtheit</label>
+			<button class="attr-btn" data-attr="gw">{{actor.system.attributes.gw}}</button>
+
+			<label>Fingerfertigkeit</label>
+			<button class="attr-btn" data-attr="ff">{{actor.system.attributes.ff}}</button>
+
+			<label>Intuition</label>
+			<button class="attr-btn" data-attr="in">{{actor.system.attributes.in}}</button>
+
+			<label>Charisma</label>
+			<button class="attr-btn" data-attr="ch">{{actor.system.attributes.ch}}</button>
+
+			<label>Verstand</label>
+			<button class="attr-btn" data-attr="vs">{{actor.system.attributes.vs}}</button>
+		  </div>
+	  {{/if}}
     </div>
 
     <!-- Fähigkeiten -->
